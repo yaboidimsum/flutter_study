@@ -28,6 +28,14 @@ class _DiceRollerState extends State<DiceRoller> {
       mainAxisSize: MainAxisSize
           .min, // Align the children to the center, the column will take the minimum height
       children: [
+        Text(
+          "You rolled a $currentDiceRoll!",
+          style: const TextStyle(
+              fontSize: 32,
+              color: Color(0xfff2e8cf),
+              fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(height: 20),
         Image.asset(
           'assets/images/dice-$currentDiceRoll.png',
           width: 200,
