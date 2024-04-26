@@ -1,0 +1,5 @@
+So quiz is the top of the widget and it connects start_screen with quiz_screen. 
+Bikin fungsionalitas buat ganti halamannya ada di quiz.dart sementara start_screen dan question_screen
+dapat menggunakan fungsi untuk ganti halaman dari quiz.dart menggunakan Initstate pada quiz_dart yang nantinya
+dapat digunakan di masing-masing button pada start_screen dan question_screen. Check pada bagian this.SwitchScreen
+
