@@ -12,25 +12,28 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  //Alternative using initial state to pass the activeScreen value READ THE DOCS
 
-  Widget? activeScreen ; // ? is used to denote that the variable can be null
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    // Initstate use to initialize the state of the widget
-    activeScreen =  StartScreen(switchScreen);
-    super.initState();
-  }
+  var activeScreen = 'start-screen'; // 'start-screen' or 'question-screen
 
   void switchScreen() {
-    setState((){
-      activeScreen = const QuestionScreen();
+    setState(() {
+      activeScreen = 'question-screen';
     });
   }
 
   @override
   Widget build(context) {
+    // Widget screenWidget = activeScreen == 'start-screen'
+    //     ? StartScreen(switchScreen)
+    //     : const QuestionScreen();
+
+    Widget screenWidget = StartScreen(switchScreen);
+
+    if (activeScreen == 'question-screen') {
+      screenWidget = const QuestionScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -41,7 +44,7 @@ class _QuizState extends State<Quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: screenWidget,
         ),
       ),
     );
